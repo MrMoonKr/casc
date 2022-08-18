@@ -7,6 +7,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// .idx 파일 헤더
 type IndexHeader struct {
 	HeaderHashSize          uint32
 	HeaderHash              uint32
@@ -23,6 +24,7 @@ type IndexHeader struct {
 	EntriesHash             uint32
 }
 
+// .idx 청크 데이터
 type IdxEntry struct {
 	Key    []byte //first len(Key) bytes of the key
 	Index  int    //archive name: "data.XXX"
@@ -30,6 +32,7 @@ type IdxEntry struct {
 	Size   uint32
 }
 
+// .idx 파일 로딩
 func ParseIdx(r io.Reader) ([]IdxEntry, error) {
 	h := IndexHeader{}
 	if err := binary.Read(r, binary.LittleEndian, &h); err != nil {

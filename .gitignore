@@ -16,7 +16,6 @@
 blte/test_decoded
 blte/test_encoded
 
-.vscode
 cache
 doc
 blte

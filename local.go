@@ -26,6 +26,7 @@ type local struct {
 	idxs            map[uint8][]common.IdxEntry
 }
 
+// installDir 에 있는 로컬 리소스 로딩
 func newLocalStorage(installDir string) (l *local, err error) {
 
 	//
